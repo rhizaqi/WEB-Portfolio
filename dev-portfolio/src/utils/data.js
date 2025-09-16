@@ -20,6 +20,13 @@ import {
 
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 
+import PROJECTS_IMG_1 from "../assets/images/1-E-COMMERCE PLATFORM.png";
+import PROJECTS_IMG_2 from "../assets/images/2-BLOG APP WITH AI POST GENERATOR.png";
+import PROJECTS_IMG_3 from "../assets/images/3-TASK MANAGEMENT.png";
+import PROJECTS_IMG_4 from "../assets/images/4-AI-POWERED INTERVIEW PREPARATION.png";
+import PROJECTS_IMG_5 from "../assets/images/5-RESUME BUILDER.png";
+import PROJECTS_IMG_6 from "../assets/images/6-EXPENSE-TRACKER.png";
+
 export const SKILLS_CATEGORY = [
   {
     title: "Frontend",
