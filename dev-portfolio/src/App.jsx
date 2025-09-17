@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
+import Navbar from "./components/navbar";
 
 function App() {
   return (
     <div>
-      <div className="text-white" >App</div>
+      <ThemeProvider>
+        <div>
+          <Navbar />
+        </div>
+      </ThemeProvider>
     </div>
   );
 }
