@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Code2, Menu, X } from "lucide-react";
@@ -25,8 +25,11 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-z">
-          <Code2 size={24} className="text-blue-500" />{" "}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="flex items-center space-x-2"
+        >
+          <Code2 size={24} className="text-blue-500 " />{" "}
           <span className="flex item-center space-x-z">Time To Program </span>
         </motion.div>
 
@@ -48,6 +51,9 @@ export default function Navbar() {
           ))}
 
           <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => (isDarkMode ? "light" : "dark")}
             className={`p-2 rounded-full transition-colors ${
               isDarkMode
                 ? "text-gray-400 hover:bg-gray-800"
@@ -57,7 +63,62 @@ export default function Navbar() {
             {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </motion.button>
         </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center space-x-4">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onCanPlay={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
+            className={`p-2 rounded-full transition-colors ${
+              isDarkMode
+                ? "text-gray-400 hover:text-white hover:bg-gray-800"
+                : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+            }`}
+          >
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`p-2 rounded-full transition-colors ${
+              isDarkMode
+                ? "text-gray-400 hover:text-white hover:bg-gray-800"
+                : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+            }`}
+          >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </motion.button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className={`md:hidden mt-4 p-4 rounded-lg ${
+              isDarkMode ? "bg-gray-900" : "bg-white"
+            } border ${isDarkMode ? "border-gray-800" : "border-gray-200"}`}
+          >
+            {["Home", "Skills", "Work", "About", "Contact"].map((item) => (
+              <motion.button
+                key={item}
+                className={`block w-full text-left py-2 text-sm uppercase tracking-wide transitions-colors ${
+                  isDarkMode
+                    ? "text-gray-400 hover:text-white"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                {item}
+              </motion.button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }

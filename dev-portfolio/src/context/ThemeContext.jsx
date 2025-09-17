@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
@@ -8,6 +7,7 @@ export const ThemeProvider = ({ children }) => {
   );
 
   useEffect(() => {
+    
     const root = window.document.documentElement;
 
     if (isDarkMode === "dark") {
@@ -15,8 +15,7 @@ export const ThemeProvider = ({ children }) => {
     } else {
       root.classList.remove("dark");
     }
-
-    localStorage.setItem("theme", isDarkMode); 
+    localStorage.setItem("theme", isDarkMode);
   }, [isDarkMode]);
 
   return (
@@ -27,5 +26,4 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
 export const useTheme = () => useContext(ThemeContext);
