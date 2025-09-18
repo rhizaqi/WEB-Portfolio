@@ -30,7 +30,13 @@ export default function Navbar() {
           className="flex items-center space-x-2"
         >
           <Code2 size={24} className="text-blue-500 " />{" "}
-          <span className="text-lg ml-1">Time To Program </span>
+          <span
+            className={`text-lg ml-1 ${
+              isDarkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
+            Time To Program{" "}
+          </span>
         </motion.div>
 
         {/* Desktop Navigation */}

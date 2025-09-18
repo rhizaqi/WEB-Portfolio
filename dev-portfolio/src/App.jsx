@@ -1,5 +1,6 @@
 import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/navbar";
+import HeroSection from "./components/sections/HeroSection";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <ThemeProvider>
         <div>
           <Navbar />
+          <HeroSection />
         </div>
       </ThemeProvider>
     </div>
