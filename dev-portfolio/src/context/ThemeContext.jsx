@@ -7,7 +7,6 @@ export const ThemeProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    
     const root = window.document.documentElement;
 
     if (isDarkMode === "dark") {

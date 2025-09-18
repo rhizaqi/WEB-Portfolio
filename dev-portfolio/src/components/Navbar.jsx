@@ -30,7 +30,7 @@ export default function Navbar() {
           className="flex items-center space-x-2"
         >
           <Code2 size={24} className="text-blue-500 " />{" "}
-          <span className="flex item-center space-x-z">Time To Program </span>
+          <span className="text-lg ml-1">Time To Program </span>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -53,7 +53,7 @@ export default function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => (isDarkMode ? "light" : "dark")}
+            onClick={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
             className={`p-2 rounded-full transition-colors ${
               isDarkMode
                 ? "text-gray-400 hover:bg-gray-800"
@@ -69,7 +69,7 @@ export default function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onCanPlay={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
+            onClick={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
             className={`p-2 rounded-full transition-colors ${
               isDarkMode
                 ? "text-gray-400 hover:text-white hover:bg-gray-800"
@@ -107,7 +107,7 @@ export default function Navbar() {
             {["Home", "Skills", "Work", "About", "Contact"].map((item) => (
               <motion.button
                 key={item}
-                className={`block w-full text-left py-2 text-sm uppercase tracking-wide transitions-colors ${
+                className={`block w-full text-left py-2 text-sm uppercase tracking-wide transition-colors ${
                   isDarkMode
                     ? "text-gray-400 hover:text-white"
                     : "text-gray-600 hover:text-gray-900"
