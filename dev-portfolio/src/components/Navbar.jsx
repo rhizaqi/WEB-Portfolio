@@ -29,13 +29,13 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           className="flex items-center space-x-2"
         >
-          <Code2 size={24} className="text-blue-500 " />{" "}
+          <Code2 size={24} className="text-blue-500 " />
           <span
             className={`text-lg ml-1 ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}
           >
-            Time To Program{" "}
+            Time To Program
           </span>
         </motion.div>
 
@@ -46,7 +46,7 @@ export default function Navbar() {
               key={item}
               whileHover={{ y: -2 }}
               onClick={() => scrollToSection(item.toLocaleLowerCase())}
-              className={`text-sm upppercase tracking-wider transition-colors ${
+              className={`text-sm uppercase tracking-wider transition-colors ${
                 isDarkMode
                   ? "text-gray-400 hover:text-white"
                   : "text-gray-600 hover:text-gray-900"

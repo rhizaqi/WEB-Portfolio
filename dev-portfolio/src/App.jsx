@@ -3,11 +3,10 @@ import Navbar from "./components/navbar";
 import HeroSection from "./components/sections/HeroSection";
 import SkillSection from "./components/sections/SkillSection";
 
-
 function App() {
   return (
     <ThemeProvider>
-      <div className="pb-[100vh]">
+      <div className="relative pb-[100vh]">
         <Navbar />
         <HeroSection />
         <SkillSection />
