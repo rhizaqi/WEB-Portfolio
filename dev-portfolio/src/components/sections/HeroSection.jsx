@@ -3,6 +3,12 @@ import { ArrowDown, Mail } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { useTheme } from "../../context/ThemeContext";
 import profilepict1 from "../../assets/images/profilepict1.jpg";
+import {
+  containerVariants,
+  itemVariants,
+  textVariants,
+  imageVariants,
+} from "../../utils/helper";
 
 export default function HeroSection() {
   const { isDarkMode } = useTheme();
@@ -17,56 +23,6 @@ export default function HeroSection() {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      y: 30,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const textVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { x: 50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-        delay: 0.5,
-      },
-    },
-  };
   return (
     <div
       className={`min-h-screen transition-all duration-500 ${
@@ -177,7 +133,6 @@ export default function HeroSection() {
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 } mb-8 max-w-xl mx-auto font-light leading-relaxed`}
               >
-                {" "}
                 I craft beautiful, funtional web applications with modern
                 technologies and thoughtfull user expirience
               </motion.p>
@@ -206,7 +161,6 @@ export default function HeroSection() {
                     : "border-gray-300 hover:border-gray-400 text-gray-700"
                 } px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300 `}
               >
-                {" "}
                 Get in touch
               </motion.button>
             </motion.div>
