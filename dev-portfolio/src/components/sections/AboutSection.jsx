@@ -3,6 +3,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { JOURNEY_STEPS, PASSIONS } from "../../utils/data";
 import { useRef } from "react";
 import { containerVariants, itemVariants } from "../../utils/helper";
+import SIGNATURE from "../../assets/images/SIGNATURE.png";
 
 export default function AboutSection() {
   const { isDarkMode } = useTheme();
@@ -93,13 +94,13 @@ export default function AboutSection() {
           </motion.h2>
         </motion.div>
 
-        <div className="">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Personal Story */}
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={containerVariants}
-            className=""
+            className="space-y-8"
           >
             <motion.div
               variants={itemVariants}
@@ -130,12 +131,104 @@ export default function AboutSection() {
                 love the constant evolution of web technologies and endless
                 possibilities they bring to create meaningful digital
                 experiences.
-               </p>
+              </p>
             </motion.div>
 
             {/* What I Love Building */}
-            <motion.div>
-                {/* 1:19:41 */}
+            <motion.div variants={itemVariants} className="space-y-4">
+              <h3 className="text-xl font-medium mb-6">What I Love Building</h3>
+              <div className="grid gap-4">
+                {PASSIONS.map((passion, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ x: 4 }}
+                    className={`flex items-center space-x-4 p-4 rounded-xl ${
+                      isDarkMode
+                        ? "bg-gray-800/30 hover:bg-gray-800/50"
+                        : "bg-gray-50/50 hover:bg-gray-100/50"
+                    } transition-all duration-300`}
+                  >
+                    <div
+                      className={`p-3 rounded-lg ${
+                        isDarkMode ? "bg-gray-700" : "bg-white"
+                      }`}
+                    >
+                      <passion.icon size={20} className="text-blue-500" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-1">{passion.title}</h4>
+                      <p
+                        className={`text-sm ${
+                          isDarkMode ? "text-gray-400" : "text-gray-600"
+                        }`}
+                      >
+                        {passion.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Digital Signature */}
+            <motion.div variants={itemVariants} className="text-center py-8">
+              <div
+                className={`text-sm ${
+                  isDarkMode ? "text-gray-500" : "text-gray-600"
+                }`}
+              >
+                Crafted with passion by
+              </div>
+              {/* DigitalSignature */}
+              <div className="flex justify-center">
+                <img src={SIGNATURE} alt="signature" />
+              </div>
+              <div className="text-lg font-medium text-blue-500 mt-2">
+                Alex Johnson
+              </div>
+            </motion.div>
+            {/* Developer Journey Timeline */}
+            <motion.div
+              ref={timelineRef}
+              initial={timelineRef ? "visible" : "hidden"}
+              variants={timelineVariants}
+              className=""
+            >
+              <h3 className="">My Developer Journey</h3>
+              {/* Timeline Line */}
+              <div
+                className={`absolute left-8 top-16 bottom-0 w-px ${
+                  isDarkMode ? "bg-gray-700" : "bg-gray-300"
+                }`}
+              />
+              <div className="">
+                {JOURNEY_STEPS.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    variants={stepVariants}
+                    whileHover={{ x: 4 }}
+                    className=""
+                  >
+                    {/* Timeline Dot */}
+                    <div
+                      className={`relative z-10 flex-shrink-0 w-16 h-16 rounded-full ${step.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <step.icon size={24} className="" />
+                      {/* Content */}
+                      <div
+                        className={`flex-grow p-6 rounded-xl border transition-all duration-300 ${
+                          isDarkMode
+                            ? "bg-gray-800/50 border-gray-700 group-hover:border-gray-600 group-hover:bg-gray-800/70"
+                            : "bg-white/80 border-gray-200 group-hover:border-gray-300 group-hover:bg-white"
+                        } backdrop-blur-sm`}
+                      >
+                        <h4>{/* here 1:25:00 */}</h4>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         </div>
