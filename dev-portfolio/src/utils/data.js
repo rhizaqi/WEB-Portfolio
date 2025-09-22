@@ -176,8 +176,17 @@ export const PROJECTS = [
 export const JOURNEY_STEPS = [
   {
     years: "2021",
-    title: "Start coding journey",
+    title: "Start Coding Journey",
     company: "Selft-taught",
+    description:
+      "Began learning web development with HTML, CSS and JavaScript. Build my first website and love it.",
+    icon: Code2,
+    color: "bg-blue-500",
+  },
+  {
+    years: "2022",
+    title: "First Intership",
+    company: "Techstart Inc.",
     description:
       "Joined as a frontend intern, working with react and learning modern development practices. Contribute in some projects.",
     icon: Briefcase,
