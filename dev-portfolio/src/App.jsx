@@ -4,6 +4,8 @@ import HeroSection from "./components/sections/HeroSection";
 import SkillSection from "./components/sections/SkillSection";
 import ProjectSection from "./components/sections/ProjectSection";
 import AboutSection from "./components/sections/AboutSection";
+import ContactSection from "./components/sections/ContactSection";
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         <SkillSection />
         <ProjectSection />
         <AboutSection />
+        <ContactSection/>
       </div>
     </ThemeProvider>
   );
