@@ -18,6 +18,7 @@ function App() {
         <ProjectSection />
         <AboutSection />
         <ContactSection/>
+        <Footer/>
       </div>
     </ThemeProvider>
   );
