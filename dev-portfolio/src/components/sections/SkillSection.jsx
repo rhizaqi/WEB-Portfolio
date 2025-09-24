@@ -1,10 +1,4 @@
-import {
-  delay,
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { SKILLS_CATEGORY, STATS, TECH_STACK } from "../../utils/data";

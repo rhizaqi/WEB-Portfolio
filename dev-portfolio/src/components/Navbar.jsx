@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { motion, useScroll, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Code2, Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -41,7 +41,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          {["Home", "Skilss", "Work", "About", "Contact"].map((item) => (
+          {["Home", "Skills", "Work", "About", "Contact"].map((item) => (
             <motion.button
               key={item}
               whileHover={{ y: -2 }}
@@ -55,7 +55,6 @@ export default function Navbar() {
               {item}
             </motion.button>
           ))}
-
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -113,7 +112,9 @@ export default function Navbar() {
             {["Home", "Skills", "Work", "About", "Contact"].map((item) => (
               <motion.button
                 key={item}
-                className={`block w-full text-left py-2 text-sm uppercase tracking-wide transition-colors ${
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection(item.toLocaleLowerCase())}
+                className={`block w-full text-left py-2 text-sm uppercase tracking-wider transition-colors ${
                   isDarkMode
                     ? "text-gray-400 hover:text-white"
                     : "text-gray-600 hover:text-gray-900"

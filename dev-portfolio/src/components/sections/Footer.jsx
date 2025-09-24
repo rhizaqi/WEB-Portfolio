@@ -142,7 +142,82 @@ export default function Footer() {
             </motion.div>
 
             {/* Social Links */}
-            
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center space-x-6"
+            >
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreffer"
+                  className={`p-3 rounded-full transition-all duration-300 ${
+                    isDarkMode
+                      ? "bg-gray-800/50 hover:bg-gray-700/50"
+                      : "bg-gray-100/50 hover:bg-gray-200/50"
+                  } ${social.color} backdrop-blur-sm`}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -2,
+                    rotate: [0, -5, 5, 0],
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    delay: index * 0.1 + 0.5,
+                    type: "tween",
+                    stiffness: 300,
+                  }}
+                >
+                  <social.icon size={20} />
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* Devider */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center justify-center space-x-4"
+            >
+              <div
+                className={`h-px w-16 ${
+                  isDarkMode ? "bg-gray-700 " : "bg-gray-300"
+                }`}
+              />
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-red-500"
+              >
+                <Heart size={16} fill="currentColor" />
+              </motion.div>
+              <div
+                className={`h-px w-16  ${
+                  isDarkMode ? "bg-gray-700" : "bg-gray-300"
+                }`}
+              />
+            </motion.div>
+
+            {/* Copyright */}
+            <motion.div variants={itemVariants} className="space-y-2">
+              <p
+                className={`text-sm ${
+                  isDarkMode ? "text-gray-500" : "text-gray-600"
+                }`}
+              >
+                © {new Date().getFullYear()} Time To Program. All rights
+                reserved.
+              </p>
+              <p
+                className={`text-xs ${
+                  isDarkMode ? "text-gray-600" : "text-gray-500"
+                }`}
+              >
+                Built with React & Framer Motion • Designed with care
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

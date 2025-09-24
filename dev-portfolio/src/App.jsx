@@ -5,8 +5,7 @@ import SkillSection from "./components/sections/SkillSection";
 import ProjectSection from "./components/sections/ProjectSection";
 import AboutSection from "./components/sections/AboutSection";
 import ContactSection from "./components/sections/ContactSection";
-
-
+import Footer from "./components/sections/Footer";
 
 function App() {
   return (
@@ -17,8 +16,8 @@ function App() {
         <SkillSection />
         <ProjectSection />
         <AboutSection />
-        <ContactSection/>
-        <Footer/>
+        <ContactSection />
+        <Footer />
       </div>
     </ThemeProvider>
   );

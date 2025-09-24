@@ -195,8 +195,9 @@ export default function AboutSection() {
           {/* Developer Journey Timeline */}
           <motion.div
             ref={timelineRef}
-            initial={timelineRef ? "visible" : "hidden"}
+            initial="hidden"
             variants={timelineVariants}
+            animate={timelineInView ? "visible" :"hidden"}
             className="relative"
           >
             <h3 className="text-2xl font-medium mb-8 text-center lg:text-left">
